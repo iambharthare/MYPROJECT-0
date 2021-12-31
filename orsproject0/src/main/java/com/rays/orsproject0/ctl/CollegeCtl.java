@@ -174,7 +174,7 @@ public class CollegeCtl extends BaseCtl {
 		model.addAttribute("enterrname", entername);
 		String enterstate = messageSource.getMessage("label.enterstate", null, locale);
 		model.addAttribute("enterstate", enterstate);
-		model.addAttribute("list", service.search(null, form.getPageNo(), form.getPageSize()));
+		model.addAttribute("list", service.search(new CollegeDTO(), form.getPageNo(), form.getPageSize()));
 		int pageNo = 1;
 		List next = service.search(new CollegeDTO(), pageNo + 1, form.getPageSize());
 		model.addAttribute("nextlistsize", next.size());
@@ -199,6 +199,9 @@ public class CollegeCtl extends BaseCtl {
 		log.debug("CollegeCtl submit method to submit CollegeList started");
 		model.addAttribute("findList", service.search(null));
 		int pageNo = form.getPageNo();
+		if (OP_SEARCH.equalsIgnoreCase(form.getOperation())) {
+			pageNo=1;
+			}
 		if (OP_PREVIOUS.equalsIgnoreCase(form.getOperation())) {
 			pageNo--;
 		} else if (OP_NEXT.equalsIgnoreCase(form.getOperation())) {

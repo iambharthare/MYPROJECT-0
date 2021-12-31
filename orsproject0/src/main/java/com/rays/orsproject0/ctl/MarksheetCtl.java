@@ -205,6 +205,9 @@ public class MarksheetCtl extends BaseCtl{
 		model.addAttribute("enterName",entername);
 		model.addAttribute("findList",service.search(null));
 	    int pageNo=form.getPageNo();
+	    if (OP_SEARCH.equalsIgnoreCase(form.getOperation())) {
+			pageNo=1;
+			}
 	    if(OP_PREVIOUS.equalsIgnoreCase(form.getOperation())) {
 	    	pageNo--;
 	    }else if(OP_NEXT.equalsIgnoreCase(form.getOperation())) {

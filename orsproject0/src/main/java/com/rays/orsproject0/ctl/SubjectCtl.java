@@ -197,6 +197,9 @@ public class SubjectCtl extends BaseCtl {
 		model.addAttribute("enterfFirstName", enterfirstName);
 		
 		int pageNo = form.getPageNo();
+		if (OP_SEARCH.equalsIgnoreCase(form.getOperation())) {
+			pageNo=1;
+			}
 		if(OP_PREVIOUS.equalsIgnoreCase(operation)) {
 			pageNo--;
 		}else if(OP_NEXT.equalsIgnoreCase(operation)) {

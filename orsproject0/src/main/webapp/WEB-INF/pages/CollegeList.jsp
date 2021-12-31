@@ -218,7 +218,7 @@ background-image: url("http://localhost:8080/orsproject0/resources/img/image6.pn
 
 			</sf:form>
 
-		</div>
+		</div>+
 	</div>
 </div>
 

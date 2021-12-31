@@ -37,6 +37,7 @@ public class UserRegistrationForm extends BaseForm {
 	 * Password of User
 	 */
 	@NotEmpty
+    @Pattern (regexp= "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,15})", message="{Pattern.password}")
 	private String password;
 
 	/**

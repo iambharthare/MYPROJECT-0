@@ -38,6 +38,7 @@ public class UserForm extends BaseForm{
      * Password of User
      */
     @NotEmpty
+    @Pattern (regexp= "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,15})")
     private String password;
 
     /**

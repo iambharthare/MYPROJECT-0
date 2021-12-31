@@ -23,8 +23,8 @@ background-size: 100%;
 
 .welcome{
 align-items:center;
-padding-top:200px;
-padding-left:650px;
+padding-top:100px;
+padding-left:600px;
 }
 
 

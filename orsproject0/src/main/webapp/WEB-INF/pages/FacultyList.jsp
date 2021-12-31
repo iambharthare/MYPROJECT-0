@@ -54,6 +54,15 @@
 								cssClass="form-control border-left-right"
 								placeholder="${enterLastName}" />
 						</div>
+						<%-- <div class="col-lg-3">
+								<sf:select path="id" class="form-control border-left-right">
+									<sf:option value="0">
+										<s:message code="label.selectemail" />
+									</sf:option>
+									<sf:options items="${emailList}" itemValue="id"
+										itemLabel="name" />
+								</sf:select>
+							</div> --%>
 						<div class="col-lg-3">
 							<sf:input path="emailId" cssClass="form-control border-left-right"
 								placeholder="${enteremail}" />

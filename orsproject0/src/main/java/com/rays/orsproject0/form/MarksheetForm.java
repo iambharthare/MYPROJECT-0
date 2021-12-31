@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -30,6 +31,7 @@ public class MarksheetForm extends BaseForm{
 	 *
 	 */
 	@NotEmpty
+	@Pattern(regexp="^[A-Z]{2}[0-9]{2,6}$", message=("{error.roll}"))
 	private String rollNo;
 	/**
 	 * studentId of Marksheet

@@ -62,6 +62,9 @@ public class FacultyCtl extends BaseCtl{
 		model.addAttribute("collegeList",collegeService.search(null));
     	model.addAttribute("courseList",courseService.search(null));
     	model.addAttribute("subjectList",subjectService.search(null));
+		/*
+		 * List list=service.search(null); model.addAttribute("emailList",list);
+		 */
 		log.debug("FacultyCtl preload method ended");
 	}
 	
@@ -129,7 +132,7 @@ public class FacultyCtl extends BaseCtl{
 		model.addAttribute("enteremail",enteremail);
 		 
 		String enterdob=messageSource.getMessage("label.enterdob",null,locale);
-		model.addAttribute("enterdob",enterdob);
+		model.addAttribute("enterdoj",enterdob);
 		 
 		String enterfirstName=messageSource.getMessage("label.enterfname",null,locale);
 		model.addAttribute("enterfirstName",enterfirstName);
@@ -194,9 +197,10 @@ public class FacultyCtl extends BaseCtl{
 		model.addAttribute("enterfFirstName", enterfirstName);
 		String enterLastName = messageSource.getMessage("label.enterlname", null, locale);
 		model.addAttribute("enterLastName", enterLastName);
-		String enteremail=messageSource.getMessage("label.enteremail",null,locale);
-		model.addAttribute("enteremail",enteremail);
-		model.addAttribute("list",service.search(null, form.getPageNo(),form.getPageSize()));
+		
+		  String enteremail=messageSource.getMessage("label.enteremail",null,locale);
+		  model.addAttribute("enteremail",enteremail);
+		 model.addAttribute("list",service.search(new FacultyDTO(), form.getPageNo(),form.getPageSize()));
 		int pageNo = 1;
 		List next = service.search(new FacultyDTO(), pageNo+1, form.getPageSize());
 		model.addAttribute("nextlistsize",next.size());
@@ -227,6 +231,9 @@ public class FacultyCtl extends BaseCtl{
 		model.addAttribute("enterfFirstName", enterfirstName);
 		String enterlname = messageSource.getMessage("label.enterlname", null, locale);
 		model.addAttribute("enterLname", enterlname);
+		if (OP_SEARCH.equalsIgnoreCase(form.getOperation())) {
+			pageNo=1;
+			}
 	    if(OP_PREVIOUS.equalsIgnoreCase(operation)) {
 	    	pageNo--;
 	    }else if(OP_NEXT.equalsIgnoreCase(operation)) {
@@ -240,7 +247,7 @@ public class FacultyCtl extends BaseCtl{
 	    		model.addAttribute("success", msg);
 	    	}else {
 	    		String msg = messageSource.getMessage("message.atleastone", null, locale);
-				model.addAttribute("error1", msg);
+				model.addAttribute("error", msg);
 	    	}
 	    }
 	    pageNo=(pageNo<1)?1:pageNo;

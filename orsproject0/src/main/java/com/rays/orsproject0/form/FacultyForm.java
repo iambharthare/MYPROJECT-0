@@ -77,7 +77,7 @@ public class FacultyForm extends BaseForm{
 	 *
 	 */
 	@NotEmpty
-	@Pattern(regexp = "^[^-\\s][\\p{L} .']+$", message="{Pattern.form.fname}")
+	
 	private String dob;
 	/**
 	 * MobileNo Of Faculty
